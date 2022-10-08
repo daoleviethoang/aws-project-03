@@ -5,7 +5,7 @@ metadata:
   labels:
     app: backend-user
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: backend-user
@@ -15,19 +15,29 @@ spec:
         app: backend-user
     spec:
       containers:
-        - name: backend-user
-          image: hoangdlv/udagram-api-user:v1
-          ports:
-            - containerPort: 8080
-          envFrom:
-            - configMapRef:
-                name: udagram-env
-            - secretRef:
-                name: udagramdb-env
-          volumeMounts:
-            - mountPath: "/root/.aws/"
-              name: udagram-aws
+      - image: hoangdlv/udagram-api-user:v1
+        name: backend-user
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "2048Mi"
+            cpu: "500m"
+        ports:
+          - containerPort: 8080
+        envFrom:
+          - configMapRef:
+              name: udagram-env
+          - secretRef:
+              name: udagramdb-env
+        volumeMounts:
+        - name: aws-secret
+          mountPath: "/root/.aws/"
+          readOnly: true
+      restartPolicy: Always
       volumes:
-        - name: udagram-aws
-          configMap:
-            name: udagram-aws
+      - name: aws-secret
+        secret:
+          secretName: aws-secret
