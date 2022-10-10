@@ -15,7 +15,7 @@ spec:
         app: reverseproxy
     spec:
       containers:
-      - image: hoangdlv/reverseproxy:v1
+      - image: hoangdlv/reverseproxy:v2
         name: reverseproxy
         imagePullPolicy: Always
         resources:

@@ -15,7 +15,16 @@ spec:
         app: frontend
     spec:
       containers:
-        - name: frontend
-          image: hoangdlv/udagram-frontend:v6
-          ports:
-            - containerPort: 80
+      - image: hoangdlv/udagram-frontend:v2
+        name: frontend
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+      restartPolicy: Always
