@@ -1,3 +1,6 @@
+# My public web:
+Frontend: http://a84b9e05e483943528abbf5a18432c39-1190838265.us-east-1.elb.amazonaws.com
+Backend: http://a8930c0d0b8124b2b8b1a0952664993c-1739535395.us-east-1.elb.amazonaws.com:8080
 # Screenshots
 To help review your infrastructure, please include the following screenshots in this directory::
 
