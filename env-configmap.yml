@@ -3,9 +3,9 @@ kind: ConfigMap
 metadata:
   name: udagram-env
 data:
-  POSTGRES_HOST: udagram-instance.c3hleljjpudr.us-east-1.rds.amazonaws.com
-  POSTGRES_DB: udagramdb
-  AWS_BUCKET: hoangdlv-udagram
+  POSTGRES_HOST: database-1.c0gvmtl933g5.us-east-1.rds.amazonaws.com
+  POSTGRES_DB: project03
+  AWS_BUCKET: hoangdlv-project03
   AWS_REGION: us-east-1
   AWS_PROFILE: default
   JWT_SECRET: testing
